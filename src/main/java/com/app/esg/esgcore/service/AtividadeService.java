@@ -31,6 +31,14 @@ public class AtividadeService {
         return dtos;
     }
 
+    public AtividadeDTO retornaAtividadePorId(Long atividadeId) {
+        Optional<Atividade> atividade = repository.findById(atividadeId);
+        if(atividade.isEmpty()) {
+            throw new AtividadeNaoExistenteException("Atividade com o id informado nao existe.");
+        }
+        return AtividadeMapper.convertToDTO(atividade.get());
+    }
+
     public List<AtividadeDTO> retornaAtividadesUsuario(Long usuarioId) {
         List<AtividadeDTO> dtos = new ArrayList<>();
         Optional<Usuario> usuario = usuarioRepository.findById(usuarioId);

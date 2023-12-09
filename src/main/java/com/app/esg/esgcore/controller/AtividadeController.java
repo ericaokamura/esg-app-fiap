@@ -22,7 +22,12 @@ public class AtividadeController {
         return ResponseEntity.ok(service.retornaTodasAtividades());
     }
 
-    @GetMapping("/{usuario_id}")
+    @GetMapping("/{atividade_id}")
+    public ResponseEntity<AtividadeDTO> retornaAtividadePorId(@PathVariable("atividade_id") Long atividadeId) {
+        return ResponseEntity.ok(service.retornaAtividadePorId(atividadeId));
+    }
+
+    @GetMapping("/usuarios/{usuario_id}")
     public ResponseEntity<List<AtividadeDTO>> retornaAtividadesUsuario(@PathVariable("usuario_id") Long usuarioId) {
         return ResponseEntity.ok(service.retornaAtividadesUsuario(usuarioId));
     }

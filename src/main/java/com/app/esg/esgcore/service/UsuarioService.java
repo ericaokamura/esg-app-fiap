@@ -43,7 +43,7 @@ public class UsuarioService {
     public UsuarioDTO salvaUsuario(UsuarioDTO dto) {
         Optional<Usuario> usuario = repository.findByEmail(dto.getEmail());
         if(usuario.isPresent()) {
-            throw new UsuarioJaExistenteException("Nao é possivel salvar usuario ja existente.");
+            throw new UsuarioJaExistenteException("Nao é possivel salvar, usuario ja existente.");
         }
         Usuario retorno = repository.save(UsuarioMapper.convertToModel(dto));
         return UsuarioMapper.convertToDTO(retorno);
