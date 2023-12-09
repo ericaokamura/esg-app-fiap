@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,13 +15,18 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "NOMECOMPLETO")
     private String nomeCompleto;
 
+    @Column(name = "EMAIL")
     private String email;
 
     @OneToMany
-    private List<Atividade> atividades;
+    @Column(name = "ATIVIDADES")
+    @Transient
+    private List<Atividade> atividades = new ArrayList<>();
 
 }

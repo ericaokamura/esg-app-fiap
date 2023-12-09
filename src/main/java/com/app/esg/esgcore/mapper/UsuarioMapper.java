@@ -16,7 +16,9 @@ public class UsuarioMapper {
         dto.setEmail(usuario.getEmail());
         dto.setNomeCompleto(usuario.getNomeCompleto());
         List<AtividadeDTO> atividades = new ArrayList<>();
-        usuario.getAtividades().forEach(atividade -> atividades.add(AtividadeMapper.convertToDTO(atividade)));
+        if(usuario.getAtividades() != null) {
+            usuario.getAtividades().forEach(atividade -> atividades.add(AtividadeMapper.convertToDTO(atividade)));
+        }
         dto.setAtividades(atividades);
         return dto;
     }

@@ -1,0 +1,1 @@
+INSERT INTO Usuario(ID, NOMECOMPLETO, EMAIL) values (1, 'Erica Okamura', 'erica@email.com');
