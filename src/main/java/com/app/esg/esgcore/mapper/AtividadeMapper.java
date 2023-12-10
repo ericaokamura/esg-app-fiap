@@ -10,6 +10,7 @@ public class AtividadeMapper {
 
     public static AtividadeDTO convertToDTO(Atividade atividade) {
         AtividadeDTO dto = new AtividadeDTO();
+        dto.setId(atividade.getId() != null ? atividade.getId() : null);
         dto.setCategoria(atividade.getCategoria().name());
         dto.setDescricao(atividade.getDescricao());
         dto.setTitulo(atividade.getTitulo());
@@ -20,10 +21,15 @@ public class AtividadeMapper {
 
     public static Atividade convertToModel(AtividadeDTO dto) {
         Atividade atividade = new Atividade();
+        atividade.setId(dto.getId() != null ? dto.getId() : null);
         atividade.setCategoria(Categoria.valueOf(dto.getCategoria()));
         atividade.setDescricao(dto.getDescricao());
         atividade.setTitulo(dto.getTitulo());
-        atividade.setCriadoEm(LocalDateTime.now());
+        if(dto.getCriadoEm() == null) {
+            atividade.setCriadoEm(LocalDateTime.now());
+        } else {
+            atividade.setCriadoEm(LocalDateTime.parse(dto.getCriadoEm()));
+        }
         return atividade;
     }
 }

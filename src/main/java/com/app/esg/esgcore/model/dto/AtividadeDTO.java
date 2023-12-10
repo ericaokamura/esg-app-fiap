@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 @Setter
 public class AtividadeDTO {
 
+    private Long id;
+
     private String titulo;
 
     private String descricao;
