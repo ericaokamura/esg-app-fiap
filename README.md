@@ -1,9 +1,9 @@
 # Projeto ESG - FIAP
 
 ## Tecnologias utilizadas:
-#### Java 17
-#### Spring Framework
-#### Lombok
++ Java 17
++ Spring Framework
++ Lombok
 
 ## Como rodar o projeto backend
 * Abrir o projeto como maven project em IDE (Eclipse, IntelliJ, STS, ...)
